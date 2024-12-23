@@ -4,7 +4,7 @@
         {
             "label": "Run go",
             "type": "shell",
-            "command": "air",
+            "command": "air -- -path ../test-folder",
             "args": [],
             "options": {
                 "cwd": "${workspaceFolder}/src"
