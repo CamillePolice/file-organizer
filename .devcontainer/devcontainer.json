@@ -1,0 +1,82 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go-postgres
+{
+	"name": "FileOrganizer",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+	// Several options detailing where the project is located within the container and how
+	// it's mapped to the actual host machine
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+
+	},
+	"forwardPorts": [
+		
+	],
+	"portsAttributes": {
+		
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"aaron-bond.better-comments",
+				"alefragnani.Bookmarks",
+				"formulahendry.auto-rename-tag",
+				"formulahendry.auto-close-tag",
+				"icrawl.discord-vscode",
+				"softwaredotcom.swdc-vscode",
+				"mikestead.dotenv",
+				"IBM.output-colorizer",
+				"wayou.vscode-todo-highlight",
+				"BracketPairColorDLW.bracket-pair-color-dlw",
+				"mgmcdermott.vscode-language-babel",
+				"naumovs.color-highlight",
+				"ms-azuretools.vscode-docker",
+				"IronGeek.vscode-env",
+				"dbaeumer.vscode-eslint",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"codezombiech.gitignore",
+				"GitLab.gitlab-workflow",
+				"eamodio.gitlens",
+				"golang.go",
+				"golang.go-nightly",
+				"wix.vscode-import-cost",
+				"oderwat.indent-rainbow",
+				"esbenp.prettier-vscode",
+				"tal7aouy.rainbow-bracket",
+				"rangav.vscode-thunder-client",
+				"Gruntfuggly.todo-tree",
+				"ChakrounAnas.turbo-console-log",
+				"Vue.volar",
+				"redhat.vscode-yaml",
+				"ms-azuretools.vscode-docker",
+				"eg2.vscode-npm-script",
+				"christian-kohler.npm-intellisense",
+				"christian-kohler.path-intellisense",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
+	"mounts": [
+    	"type=bind,source=${localWorkspaceFolder},target=/home/vscode/.ssh/",
+    	"type=bind,source=/home/${localEnv:USER}/.ssh,target=/home/vscode/.ssh/,readonly"
+  	],
+	"postCreateCommand": "go version && go mod tidy"
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5432],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "go version",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	//"remoteUser": "root"
+}
