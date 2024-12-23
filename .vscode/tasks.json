@@ -15,5 +15,19 @@
                 "isDefault": true
             }
         }
+    ,
+    {
+        "label": "Run go test",
+        "type": "shell",
+        "command": "go test ./tests -v",
+        "options": {
+            "cwd": "${workspaceFolder}/src"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "test",
+            "isDefault": true
+        }
+    }
     ]
 }

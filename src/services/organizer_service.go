@@ -63,7 +63,7 @@ func (org *OrganizerService) fileWorker(tasks chan FileTask, fileTypes models.Fi
 	defer wg.Done()
 
 	for task := range tasks {
-		fileType := org.detectFileType(task.file, fileTypes)
+		fileType := org.DetectFileType(task.file, fileTypes)
 		if err := org.moveFile(task.path, task.file, fileType); err != nil {
 			log.Printf("Error moving file %s: %v\n", task.file.Name, err)
 			stats.mu.Lock()
@@ -77,7 +77,7 @@ func (org *OrganizerService) fileWorker(tasks chan FileTask, fileTypes models.Fi
 	}
 }
 
-func (org *OrganizerService) detectFileType(file models.File, fileTypes models.FileTypes) string {
+func (org *OrganizerService) DetectFileType(file models.File, fileTypes models.FileTypes) string {
 	// Try MIME type detection first
 	mimeType := mime.TypeByExtension(filepath.Ext(file.Name))
 	if mimeType != "" {

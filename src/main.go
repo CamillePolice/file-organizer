@@ -21,8 +21,6 @@ func main() {
 		fmt.Println("No files found")
 	}
 
-	fmt.Println("Finished")
-
 	folderService.PrepareFolders(path)
 	organizerService.OrganizeFiles(files, path)
 }
